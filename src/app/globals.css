@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 @layer components {
-      .heroButton{
-        @apply border border-[#242424] rounded-full px-6 py-2 text-gray-500 tracking-widest 
-      }
+  .heroButton {
+    @apply border border-[#242424] rounded-full uppercase text-xs px-6 py-2  tracking-widest text-gray-500 transition-all  
+    hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40 
+  }
 
 }
-
