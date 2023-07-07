@@ -5,6 +5,7 @@ import Head from 'next/head'
 import WorkExperience from '../../components/WorkExperience'
 import About from '../../components/About'
 import Skills from '../../components/Skills'
+import Project from '../../components/Project'
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
       {/* Header */}
       <Header />
       {/* Hero */}
-      <section id="Hero" className='snap-start'>
+      <section id="Hero" className='snap-start mt-30'>
         <Hero />
       </section>
       {/* About */}
@@ -33,7 +34,10 @@ export default function Home() {
         <Skills />
       </section>
       {/* Projects */}
+      <section id="project" className='snap-start'>
 
+        <Project />
+      </section>
       {/* Contact me */}
     </div>
   )
