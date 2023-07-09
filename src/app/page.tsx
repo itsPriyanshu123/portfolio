@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Header from '../../components/header'
 import Hero from '../../components/Hero'
 import Head from 'next/head'
-import WorkExperience from '../../components/WorkExperience'
+import WorkExperience from '../../components/workExperience'
 import About from '../../components/About'
 import Skills from '../../components/Skills'
 import Project from '../../components/Project'
@@ -25,18 +25,18 @@ export default function Home() {
       </section>
 
       {/* Experience */}
-      <section id="experience" className='snap-center'>
+      <section id="experience" className='snap-start'>
         <WorkExperience />
       </section>
 
       <section id="experience" className='snap-center'>
 
-        <Skills />
+    <Skills/>
       </section>
       {/* Projects */}
       <section id="project" className='snap-start'>
 
-        <Project />
+        {/* <Project /> */}
       </section>
       {/* Contact me */}
     </div>

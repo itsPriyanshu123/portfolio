@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 export default function About() {
     return (
         <div className="h-screen flex  flex-col relative justify-evenly text-center md:text-left md:flex-row max-w-7xl mx-auto items-center px-10">
-            <h3 className="text-gray-500 absolute top-24 tracking-[20px] uppercase text-2xl">About</h3>
+            <h3 className="text-gray-500 absolute top-24 tracking-[20px] uppercase text-2xl">About hello</h3>
             <motion.img
                 initial={{
                     opacity: 0,

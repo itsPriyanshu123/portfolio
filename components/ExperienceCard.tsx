@@ -3,8 +3,8 @@
 import { motion } from 'framer-motion'
 export default function ExperienceCard() {
     return (
-        <article className='flex flex-col space-y-7 rounded-lg flex-shrink-0 items-center w-[500px] md:w-[600px] lg:[900px]
-        snap-center bg-[#292929] p-10 opacity-40 hover:opacity-100 transition-opacity duration-200 overflow-hidden
+        <article className='flex flex-col space-y-7 rounded-lg flex-shrink-0 items-center w-[500px] h-[500px]
+        snap-center bg-[#292929]  opacity-40 hover:opacity-100 transition-opacity duration-200 overflow-hidden
         '>
             <motion.img
                 initial={{
