@@ -4,13 +4,13 @@ import Hero from '../../components/Hero'
 import Head from 'next/head'
 import WorkExperience from '../../components/workExperience'
 import About from '../../components/About'
-
+import ContactSection from '../../components/contactSection'
 import Project from '../../components/Project'
 import SkillSection from '../../components/skillSection'
 
 export default function Home() {
   return (
-    <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y  snap-mandatory overflow-scroll z-0'>
+    <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y  snap-mandatory overflow-x-hidden overflow-y-scroll z-0'>
       <Head>
         <title>Priyanshu's Profile</title>
       </Head>
@@ -38,6 +38,9 @@ export default function Home() {
         <Project /> 
       </section>
       {/* Contact me */}
+      <section id="contact" className='snap-start'>
+        <ContactSection />
+      </section>
     </div>
   )
 }
