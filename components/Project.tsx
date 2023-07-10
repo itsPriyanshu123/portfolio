@@ -1,15 +1,15 @@
 export default function Project() {
     const projects = [1, 2, 3]
     return (
-        <div className="h-screen relative flex flex-col text-left md:flex-row overflow-hidden max-w-full justify-evenly mx-auto">
+        <div className="relative flex flex-col h-screen max-w-full mx-auto overflow-hidden text-left md:flex-row justify-evenly">
 
             <h4 className="top-[24px] tracking-[20px] text-2xl absolute text-gray-500 uppercase">Project</h4>
 
-            <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20">
+            <div className="relative z-20 flex w-full overflow-x-scroll overflow-y-hidden scrollbar-thin scrollbar-thumb-[#F7AB0A]/50 scrollbar-thin snap-x snap-mandatory">
                 {
                     projects.map((project, i) => {
                         return (
-                            <div className="w-screen flex flex-col justify-center items-center flex-shrink-0 snap-center p-20 md:p-44 h-screen space-y-10">
+                            <div className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-20 space-y-10 snap-center md:p-44">
                                 <div className="mt-60">
                                 <img
                                     className="h-60 w-80"
@@ -17,7 +17,7 @@ export default function Project() {
                                     alt="netflix image"
                                 />
                                 </div>
-                                <div className="space-y-10 px-0 md:px-10 max-w-6xl">
+                                <div className="max-w-6xl px-0 space-y-10 md:px-10">
                                     <h4 className="text-4xl font-semibold text-center">
                                         <span className="underline decoration-[#F7AB0A]/50">Case study {i + 1} of {projects.length}</span>
                                     </h4>

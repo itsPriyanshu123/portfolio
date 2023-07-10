@@ -10,7 +10,7 @@ import SkillSection from '../../components/skillSection'
 
 export default function Home() {
   return (
-    <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y  snap-mandatory overflow-x-hidden overflow-y-scroll z-0'>
+    <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y scrollbar scrollbar-track-gray-500/20 scrollbar-thumb-[#F7AB0A]/80 snap-mandatory overflow-x-hidden overflow-y-scroll z-0'>
       <Head>
         <title>Priyanshu's Profile</title>
       </Head>
