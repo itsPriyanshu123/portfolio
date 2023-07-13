@@ -2,7 +2,7 @@
 'use client'
 import { createContext } from 'react'
 
-const Context = createContext()
+// const Context = createContext()
 import React from 'react'
 import { SocialIcon } from 'react-social-icons'
 import { motion } from 'framer-motion';
@@ -47,7 +47,7 @@ export default function Header({ }: Props) {
           bgColor='transparent'
         />
       </motion.div>
-      <Link href="#contact">
+      {/* <Link href="#contact"> */}
       <motion.div
         initial={{
           x: 500,
@@ -71,9 +71,9 @@ export default function Header({ }: Props) {
           fgColor='gray'
           bgColor='transparent'
         />
-        <p className='hidden text-sm uppercase md:inline-flex text-grey-400 '>GET IN TOUCH</p>
+        <div className='hidden text-sm uppercase md:inline-flex text-grey-400 '>GET IN TOUCH</div>
       </motion.div>
-      </Link>
+      {/* </Link> */}
     </header>
   )
 }
