@@ -1,10 +1,17 @@
 //  @use-client
 'use client'
 import { motion } from 'framer-motion'
-export default function ExperienceCard() {
+type props={
+    logo: string,
+    companyName: string,
+    designation: string,
+    techlogo: string,
+    
+}
+export default function ExperienceCard({logo, companyName, designation, techlogo}:props) {
     return (
-        <article className='flex flex-col space-y-7 rounded-lg flex-shrink-0 items-center w-[500px] h-[500px]
-        snap-center bg-[#292929]  opacity-40 hover:opacity-100 transition-opacity duration-200 overflow-hidden
+        <article className='flex space-y-7 flex-col text-center md:pt-[40px] rounded-lg flex-shrink-0 items-center w-[300px] h-[400px] md:h-[500px] md:w-[500px]
+        snap-center bg-[#292929] opacity-40 hover:opacity-100 transition-opacity duration-200 
         '>
             <motion.img
                 initial={{
@@ -15,12 +22,12 @@ export default function ExperienceCard() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 className=" rounded-full w-20 h-20 object-cover object-left"
-                src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg" alt="logo"
+                src={logo} alt="logo"
             />
             <div>
-                <h3 className="text-4xl font-light">Wipro</h3>
-                <p className="text-2xl font-bold mt-1">Full Stack Developer</p>
-                <div className='flex space-x-2 '>
+                <h3 className="text-4xl font-light">{companyName}</h3>
+                <p className="text-2xl font-bold mt-1">{designation}</p>
+                <div className='flex space-x-2 items-center mx-auto '>
                     {/* tech used */}
                     <img className='h-8 w-8' src='https://w1.pngwing.com/pngs/136/126/png-transparent-javascript-logo-angularjs-nodejs-computer-programming-web-development-computer-software-jquery-yellow.png' alt='js logo' />
                     <img className='h-8 w-8' src='https://w1.pngwing.com/pngs/136/126/png-transparent-javascript-logo-angularjs-nodejs-computer-programming-web-development-computer-software-jquery-yellow.png' alt='js logo' />
