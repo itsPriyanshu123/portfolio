@@ -1,58 +1,115 @@
-//  @use-client
+/* eslint-disable @next/next/no-img-element */
 'use client'
-import { MapPinIcon, PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid"
+import React, { useState } from "react";
+import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { useForm, SubmitHandler } from "react-hook-form";
+import Alert from '@mui/material/Alert';
+type Props = {};
 
-// for react hook form 
 type Inputs = {
-    name:string,
-    email:string,
-    subject:string,
-    message:string
-  };
-export default function ContactSection() {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
 
-    // use for connecting state for react hook form 
-
-    // onsubmit will be our function and handle dubmit we will recieve from hook form 
-    const { register, handleSubmit } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = data =>{
-    window.location.href =`mailto:priyanshujee2017@gmail.com?subject=${data.subject}& body=Hi my name is ${data.name} ${data.message}`;
-  };
-    return (
-        <div className="flex relative flex-col md:flex-col justify-evenly mx-auto items-center text-center md:text-left max-w-7xl h-screen ">
-            <h3 className="absolute tracking-[10px] top-[24px] text-2xl uppercase text-gray-500">Contact Us</h3>
-
-            <div>
-                <h4 className="text-4xl font-semibold text-center">
-                    I have just got what you need {"    "}
-                    <span className="decoration-[#F7AB0A]/50 underline">Let's Talk</span>
-                </h4>
-            </div>
-            <div className="space-y-10">
-                <div className="flex items-center justify-center space-x-5">
-                    <PhoneIcon className="h-8 w-8 text-[#F7AB0A]/50 animate-pulse" />
-                    <p className="text-2xl">+916394622742</p>
-                </div>
-
-                <div className="flex items-center justify-center space-x-5">
-                    <EnvelopeIcon className="h-8 w-8 text-[#F7AB0A]/50 animate-pulse" />
-                    <p className="text-2xl">priyanshujee2017@gmail.com</p>
-                </div>
-                <div className="flex items-center justify-center space-x-5">
-                    <MapPinIcon className="h-8 w-8 text-[#F7AB0A]/50 animate-pulse" />
-                    <p className="text-2xl">Noida uttar Pradesh</p>
-                </div>
-                <form  onSubmit={handleSubmit(onSubmit)}className="w-fit flex flex-col space-y-2">
-                    <div className="flex space-x-2">
-                    <input {...register('name')}placeholder="Name" className='contactInput'type='text'/>
-                    <input {...register('email')}type='email' placeholder="email" className="contactInput"/>
-                    </div>
-                    <input {...register('subject')} type='text' placeholder="subject" className="contactInput" />
-                    <textarea {...register('message')} placeholder='message 'className="contactInput"/>
-                    <button type='submit'className="bg-[#F7AB0A]  px-10 py-5 rounded-md text-black font-bold text-lg">Submit</button>
-                </form>
-            </div>
-        </div>
+export default function ContactMe({}: Props) {
+  const [name , setName]=useState("")
+  const [email , setEmail]=useState("");
+  const { register, handleSubmit } = useForm<Inputs>();
+  const onSubmit: SubmitHandler<Inputs> = (formData) => {
+    window.location.href = `mailto:priyanshujee2017@gmail.com?subject=${formData.subject}&body=Hi, my name is ${formData.name}.${formData.message}`;
+    return(
+      <Alert severity="success">This is a success alert — check it out!</Alert>
     )
+  };
+
+  const handleButtonClick=()=>{
+    if(!name || !email){
+      <Alert severity="warning">please Enter your Name and Email</Alert>
+    }else{
+      onSubmit({ name, email, subject: "", message: "" });
+    }
+  }
+
+  return (
+    <div className="flex flex-col relative text-center justify-center mx-auto md:text-left xl:flex-row max-w-[2000px] xl:px-10 min-h-screen items-center">
+      <h3 className="absolute top-24 tracking-[20px] uppercase text-gray-500 text-2xl ">
+        Contact
+      </h3>
+      <div className="flex flex-col pt-32 space-y-4 md:space-y-5 lg:space-y-6 xl:space-y-6 2xl:space-y-10">
+        <h4 className="text-xl font-semibold text-center md:text-2xl lg:text-3xl 2xl:text-4xl">
+          I have got just what you need.{" "}
+          <span className="underline decoration-darkGreen/50">Lets talk.</span>
+        </h4>
+
+        <div className="space-y-1 md:space-y-3 lg:space-y-3 xl:space-y-3 2xl:space-y-5">
+          <div className="flex justify-center space-x-5 items -center">
+            <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
+            <p className="text-lg md:text-2xl lg:text-2xl">+91 6394622742</p>
+          </div>
+          <div className="flex items-center justify-center space-x-5">
+            <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
+            <p className="text-lg md:text-2xl lg:text-2xl">
+              priyanshujee2017@gmail.com
+            </p>
+          </div>
+          <div className="flex items-center justify-center space-x-5">
+            <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
+            <p className="text-lg md:text-2xl lg:text-2xl">
+              Noida, India
+            </p>
+          </div>
+        </div>
+
+        <form
+        onSubmit={(e)=>{
+          e.preventDefault();
+          handleButtonClick()
+        }}
+          className="flex flex-col mx-auto space-y-2 w-80 md:w-fit"
+        >
+          <div className="space-y-2 md:flex md:space-x-2 md:space-y-0 ">
+            <input
+              {...register("name")}
+              placeholder="Name"
+              className="contactInput w-80 md:w-auto"
+              type="text"
+             
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setName(e.target.value);
+              }}
+              value={name}
+            />{" "}
+            <input
+              {
+                ...register("email")
+              
+              }
+              placeholder="Email"
+              className="contactInput w-80 md:w-auto"
+              type="email"
+        
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setEmail(e.target.value);
+              }}
+              value={email}
+            />
+          </div>
+          <input
+            {...register("subject")}
+            placeholder="Subject"
+            className="contactInput "
+            type="text"
+          />
+          <textarea
+            {...register("message")}
+            placeholder="Message"
+            className="contactInput"
+          />
+        <button type='submit'className="bg-[#F7AB0A]  px-10 py-5 rounded-md text-black font-bold text-lg">Submit</button>
+        </form>
+      </div>
+    </div>
+  );
 }

@@ -1,44 +1,46 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
+import React from "react";
 
 export default function About() {
   return (
-    <div className="h-screen flex flex-col relative space-y-26 md:space-y-1  justify-evenly text-center md:text-left md:flex-row max-w-7xl mx-auto items-center px-4 md:px-10 ">
-      <h3 className="text-gray-500 absolute tracking-[20px] uppercase text-2xl  md:mb-0 md:top-26 md:text-4xl pt-10 top-11 mb-14 ">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
+      className="relative flex flex-col items-center h-screen px-10 mx-auto text-center md:text-left md:flex-row max-w-7xl justify-evenly"
+    >
+      <h3 className="absolute top-20 md:top-24 uppercase tracking-[20px] text-gray-500 text-xl md:text-2xl">
         About
       </h3>
 
       <motion.img
         initial={{
+          x: -200,
           opacity: 0,
-          x: -200
         }}
         transition={{
-          duration: 1.2
+          duration: 1.2,
         }}
         whileInView={{
+          x: 0,
           opacity: 1,
-          x: 0
         }}
-        src="https://wallpaperaccess.com/full/226242.jpg"
-        className="rounded-full mx-auto mt-[100px]  w-56 h-56 sm:w-36 sm:h-36  md:mt-11 md:mb-0  md:w-64 md:h-64 md:rounded-lg "
-        alt="Background"
+        // viewport={{ once: true }}
+        className="flex-shrink-0 object-cover -mb-24 rounded-full md:mb-0 w-52 h-52 md:rounded-lg md:w-64 md:h-60"
+        src="https://c4.wallpaperflare.com/wallpaper/553/367/746/stuart-the-minion-4k-funny-minions-8k-wallpaper-preview.jpg"
       />
-
-      <div className="   sm:space-y-6 md:space-y-8 md:ml-8">
-        <h4 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold">
-          Here is a <span className="underline text-xl sm:text-2xl decoration-[#F7AB0A]/50">little</span>{' '}
+      <div className="px-0 space-y-5 md:space-y-10 md:px-10">
+        <h4 className="text-xl font-semibold md:text-4xl">
+          Here is a{" "}
+          <span className="underline decoration-darkGreen/50">little</span>{" "}
           background
         </h4>
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. A, aperiam? Veritatis tempore
-          odio quisquam saepe exercitationem. Sapiente earum natus, fugiat deserunt odio illum?
-          Quod magni nesciunt molestiae id sapiente quibusdam placeat, numquam expedita quia Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Consequatur veritatis quia voluptatem
-          eius in maiores id provident, dolorum velit obcaecati iste reprehenderit beatae!
+        <p className="text-sm text-justify md:text-lg lg:text-lg">
+        Hey 👋🏼 I am a Software Engineer currently based in India. I did my undergraduate in Computer Science Engineering From Abdul kalam Technical University,I absolutely love all things to do with AI, robots and code. Beyond coding, I find joy in cycling, gardening, and music.
         </p>
       </div>
-      
-    </div>
+    </motion.div>
   );
 }
