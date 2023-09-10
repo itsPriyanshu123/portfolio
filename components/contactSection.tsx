@@ -75,7 +75,7 @@ export default function ContactMe({}: Props) {
               placeholder="Name"
               className="contactInput w-80 md:w-auto"
               type="text"
-             
+             required
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setName(e.target.value);
               }}
@@ -89,7 +89,7 @@ export default function ContactMe({}: Props) {
               placeholder="Email"
               className="contactInput w-80 md:w-auto"
               type="email"
-        
+        required
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setEmail(e.target.value);
               }}
