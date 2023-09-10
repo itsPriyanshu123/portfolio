@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 import React from 'react'
 import { Cursor, useTypewriter } from 'react-simple-typewriter'
@@ -35,11 +36,11 @@ export default function Hero({ }: Props) {
             </div>
             <div className=''>
                 <Link href="#about">
-                    <button className='heroButton'>About</button>
+                <button className='cursor-pointer heroButton'>About</button>
                 </Link>
-                <Link href='#projects'>
+                {/* <Link href='#projects'>
                     <button className='heroButton'>Projects</button>
-                </Link>
+                </Link> */}
                 <Link href="#experience">
                     <button className='heroButton'>Experience</button>
                 </Link>

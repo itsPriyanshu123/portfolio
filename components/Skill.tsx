@@ -4,24 +4,23 @@ import { motion } from 'framer-motion'
 
 type props={
     directionLeft:boolean,
+    skillImage:string,
+    proficiency:number
 }
-export default function Skill({directionLeft}:props) {
+export default function Skill({directionLeft,skillImage,proficiency}:props) {
     return (
-        <div className='group relative flex cursor-pointer'>
+        <div className='relative flex cursor-pointer group'>
             <motion.img
-            initial={{
-                x:directionLeft?-200:200 ,
-                opacity:0,
-            }}
-            transition={{duration: 1}}
-            whileInView={{opacity:1,x:0}}
+                 initial={{ x: directionLeft ? -80 : 80, opacity: 0 }}
+                 whileInView={{ opacity: 1, x: 0 }}
+                 transition={{ duration: 1 }}
 
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRww1IQ_zIyo6xaGZnweymZOo2GxpKbzCow_BvWGvQL&s"
-            className='rounded-full border object-cover border-gray-300 h-24 w-24 filter xl:h-32 xl:w-32 md:w-28 md:h-28 group-hover:grayscale transition duration-300 ease-in-out'
+            src={skillImage}
+            className="object-cover w-16 h-16 transition duration-200 ease-in-out border-2 rounded-full border-darkGreen md:w-20 md:h-20 lg:w-20 lg:h-20 xl:w-20 xl:h-20 2xl:w-28 2xl:h-28 filter group-hover:grayscale"
             />
-            <div className='absolute opacity-0 group-hover:opacity-80 h-24 w-24 xl:w-32 xl:h-32 md:28 md:h-28 rounded-full z-0  transition duration-300 ease-in-out group-hover:bg-white'>
-            <div className='flex items-center justify-center h-full'>
-            <p className='text-3xl font-bold opacity-100 text-red-950'>100</p>
+           <div className="absolute z-0 w-16 h-16 transition duration-200 ease-in-out rounded-full opacity-0 group-hover:opacity-80 group-hover:bg-white md:w-20 md:h-20 lg:w-20 lg:h-20 xl:w-20 xl:h-20 2xl:w-28 2xl:h-28">
+        <div className="flex items-center justify-center h-full">
+          <p className="text-xl font-bold text-black opacity-100 md:text-3xl">{proficiency}%</p>
         </div>
             </div>
     
